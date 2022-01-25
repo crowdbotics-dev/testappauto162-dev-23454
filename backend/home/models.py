@@ -17,3 +17,8 @@ class Sgchg(models.Model):
 class Aghjh(models.Model):
     "Generated Model"
     kj = models.BigIntegerField()
+
+
+class Ahkj(models.Model):
+    "Generated Model"
+    jkj = models.BigIntegerField()

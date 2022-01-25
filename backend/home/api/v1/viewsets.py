@@ -1,6 +1,11 @@
 from rest_framework import viewsets
-from home.models import Aghjh, Lhkj, Sgchg
-from .serializers import AghjhSerializer, LhkjSerializer, SgchgSerializer
+from home.models import Aghjh, Ahkj, Lhkj, Sgchg
+from .serializers import (
+    AghjhSerializer,
+    AhkjSerializer,
+    LhkjSerializer,
+    SgchgSerializer,
+)
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -59,3 +64,12 @@ class AghjhViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Aghjh.objects.all()
+
+
+class AhkjViewSet(viewsets.ModelViewSet):
+    serializer_class = AhkjSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Ahkj.objects.all()

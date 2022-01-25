@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Aghjh, Lhkj, Sgchg
+from home.models import Aghjh, Ahkj, Lhkj, Sgchg
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -91,4 +91,10 @@ class SgchgSerializer(serializers.ModelSerializer):
 class AghjhSerializer(serializers.ModelSerializer):
     class Meta:
         model = Aghjh
+        fields = "__all__"
+
+
+class AhkjSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ahkj
         fields = "__all__"
