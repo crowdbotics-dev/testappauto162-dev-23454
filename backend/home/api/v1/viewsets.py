@@ -1,3 +1,7 @@
+from rest_framework import viewsets
+from home.models import Aghjh, Lhkj, Sgchg
+from .serializers import AghjhSerializer, LhkjSerializer, SgchgSerializer
+from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.authtoken.models import Token
@@ -28,3 +32,30 @@ class LoginViewSet(ViewSet):
         token, created = Token.objects.get_or_create(user=user)
         user_serializer = UserSerializer(user)
         return Response({"token": token.key, "user": user_serializer.data})
+
+
+class LhkjViewSet(viewsets.ModelViewSet):
+    serializer_class = LhkjSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Lhkj.objects.all()
+
+
+class SgchgViewSet(viewsets.ModelViewSet):
+    serializer_class = SgchgSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Sgchg.objects.all()
+
+
+class AghjhViewSet(viewsets.ModelViewSet):
+    serializer_class = AghjhSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Aghjh.objects.all()
